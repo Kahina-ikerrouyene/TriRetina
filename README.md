@@ -1,32 +1,44 @@
-# TriRetina
+# TriRetina — Détection de Pathologies Rétiniennes
 
-Application de télé-ophtalmologie basée sur le deep learning pour la détection automatique de pathologies rétiniennes à partir de photos du fond d'œil.
+Application de télé-ophtalmologie par deep learning pour la détection automatique de trois pathologies à partir de photos du fond d'œil (rétinographie).
 
-## Pathologies détectées
+## Résultats obtenus
 
-- **Rétinopathie Diabétique (RD)**
-- **Glaucome**
-- **Dégénérescence Maculaire Liée à l'Âge (DMLA)**
+| Pathologie | AUC | Seuil optimal |
+|---|---|---|
+| Rétinopathie Diabétique | **0.9186** | 40 % |
+| Glaucome | **0.9266** | 35 % |
+| DMLA | **0.9175** | 45 % |
+| **Moyenne** | **0.9209** | — |
 
-## Architecture
+## Modèle
 
-- **Modèle** : EfficientNetB3 pré-entraîné (fine-tuning)
-- **Dataset** : ~10 000 images de fond d'œil
-- **Framework** : TensorFlow / Keras
-- **Interface** : Streamlit
+- **EfficientNetB3** pré-entraîné sur ImageNet (fine-tuning bout-en-bout)
+- Classification binaire indépendante par pathologie (sigmoid)
+- Seuils optimisés sur la courbe ROC (maximisation du Youden Index)
+- Score affiché normalisé : seuil → 50 % (au-dessus = signal d'alerte)
+
+## Technologies
+
+Python · TensorFlow / Keras · Streamlit · OpenCV · NumPy · fpdf2
+
+## Dataset
+
+~10 000 images de fond d'œil annotées (rétinographies couleur)  
+Sources : APTOS 2019, REFUGE, ORIGA, DRISHTI, Kaggle EyePACS
 
 ## Structure du projet
 
 ```
 TriRetina/
-├── 1_Notebook_Entrainement/   # Entraînement du modèle (Jupyter Notebook)
-└── 2_Application_TriRetina/   # Application Streamlit
+├── 1_Notebook_Entrainement/   # Entraînement EfficientNetB3 (Jupyter)
+└── 2_Application_TriRetina/   # Interface Streamlit
     ├── app.py
     ├── requirements.txt
     └── assets/
 ```
 
-> **Note** : Le fichier modèle (`EfficientNetB3_best.keras`, ~43 Mo) n'est pas inclus dans ce dépôt en raison de sa taille. Il doit être placé dans `2_Application_TriRetina/` avant de lancer l'application.
+> **Note** : Le fichier modèle (`EfficientNetB3_best.keras`, ~43 Mo) n'est pas inclus en raison de la limite GitHub. À placer dans `2_Application_TriRetina/` avant de lancer l'application.
 
 ## Lancer l'application
 
