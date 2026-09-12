@@ -241,7 +241,15 @@ DISEASES = {
 }
 
 # ── MODEL ────────────────────────────────────────────────────────────────────
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "EfficientNetB3_best.keras")
+import os
+import gdown
+
+MODEL_PATH = "EfficientNetB3_best.keras"
+
+if not os.path.exists(MODEL_PATH):
+    file_id = "1dstC11sAJ3HxDV5kQqfNnRuCB2cVCqMk"
+    url = f"https://drive.google.com/uc?id={file_id}"
+    gdown.download(url, MODEL_PATH, quiet=False)
 
 @st.cache_resource
 def load_model():
