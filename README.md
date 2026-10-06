@@ -5,7 +5,7 @@ Application de télé-ophtalmologie basée sur le deep learning pour la détecti
 ## Interface web
 
 <p align="center">
-  <img src="2_Application_TriRetina/assets/triRetina_interface.png" alt="Interface web TriRetina" width="900">
+  <img src="TriRetina_GitHub/2_Application_TriRetina/streamlit_interface.png" alt="Interface web TriRetina" width="900">
 </p>
 
 ## Résultats obtenus
@@ -47,14 +47,17 @@ Sources :
 TriRetina/
 ├── README.md
 │
-├── 1_Notebook_Entrainement/
-│   └── # Entraînement et évaluation du modèle EfficientNetB3
-│
-└── 2_Application_TriRetina/
-    ├── app.py
-    ├── requirements.txt
-    └── assets/
-        └── triRetina_interface.png
+└── TriRetina_GitHub/
+    ├── 1_Notebook_Entrainement/
+    │   └── # Entraînement et évaluation du modèle EfficientNetB3
+    │
+    └── 2_Application_TriRetina/
+        ├── Images test/
+        ├── LANCER.bat
+        ├── app.py
+        ├── pyproject.toml
+        ├── requirements.txt
+        └── streamlit_interface.png
 ```
 
 > **Note :** Le fichier modèle `EfficientNetB3_best.keras` (~43 Mo) n'est pas inclus dans le dépôt GitHub en raison de sa taille. Il doit être placé dans `2_Application_TriRetina/` avant de lancer l'application.
@@ -62,7 +65,7 @@ TriRetina/
 ## Lancer l'application
 
 ```bash
-cd 2_Application_TriRetina
+cd TriRetina_GitHub/2_Application_TriRetina
 pip install -r requirements.txt
 streamlit run app.py
 ```
@@ -75,3 +78,13 @@ Ce projet a été développé dans le cadre d'un stage en intelligence artificie
 
 **Kahina Ikerrouyene**
 Stage en Intelligence Artificielle & Data — Télé-ophtalmologie, 2026
+
+````
+
+**Important :** le changement principal est bien celui-ci :
+
+```markdown
+<img src="TriRetina_GitHub/2_Application_TriRetina/streamlit_interface.png" alt="Interface web TriRetina" width="900">
+````
+
+Donc **supprime l'ancien chemin `assets/triRetina_interface.png`**. Ton image actuelle est directement dans `2_Application_TriRetina`, donc ce nouveau chemin correspond à ton dépôt réel.
