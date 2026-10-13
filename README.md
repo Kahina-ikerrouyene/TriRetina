@@ -80,11 +80,3 @@ Ce projet a été développé dans le cadre d'un stage en intelligence artificie
 Stage en Intelligence Artificielle & Data — Télé-ophtalmologie, 2026
 
 ````
-
-**Important :** le changement principal est bien celui-ci :
-
-```markdown
-<img src="TriRetina_GitHub/2_Application_TriRetina/streamlit_interface.png" alt="Interface web TriRetina" width="900">
-````
-
-Donc **supprime l'ancien chemin `assets/triRetina_interface.png`**. Ton image actuelle est directement dans `2_Application_TriRetina`, donc ce nouveau chemin correspond à ton dépôt réel.
